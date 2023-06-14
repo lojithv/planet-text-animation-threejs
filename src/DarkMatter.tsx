@@ -43,7 +43,7 @@ const DarkMatter = () => {
 
   return (
     <mesh>
-      <sphereGeometry ref={sphereRef} args={[5, 24, 24]} />
+      <sphereGeometry ref={sphereRef} args={[2, 24, 24]} />
       <meshStandardMaterial color={"#01134a"} />
       {/* <meshPhysicalMaterial
           map={base}

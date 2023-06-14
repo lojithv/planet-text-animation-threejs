@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { OrbitControls, Stars, useTexture } from "@react-three/drei";
 import DarkMatter from "./DarkMatter";
 
 function Sphere() {
@@ -182,6 +182,7 @@ function App() {
 
         <pointLight distance={100} intensity={4} color="white" />
         <Swarm count={500} mouse={mouse} />
+        <Stars radius={200} count={500} />
         <Sphere />
       </Suspense>
     </Canvas>
