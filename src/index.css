@@ -64,10 +64,10 @@ body {
   position: sticky;
   top: 0px;
   display: inline-block;
-  max-width: 600px;
+  max-width: 800px;
   padding: 0;
   padding: 80px;
-  color: #a0a0a0;
+  color: #b8b8b8;
   line-height: 1.6em;
   font-size: 15px;
   letter-spacing: 1.5px;
@@ -77,8 +77,8 @@ body {
   -webkit-font-smoothing: auto;
   pointer-events: none;
   color: white;
-  font-size: 5em;
-  font-weight: 100;
+  font-size: 3em;
+  font-weight: 300;
   line-height: 1em;
   margin: 0;
   margin-bottom: 0.25em;
