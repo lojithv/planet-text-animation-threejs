@@ -1,7 +1,13 @@
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Stars, useTexture } from "@react-three/drei";
+import {
+  Html,
+  OrbitControls,
+  ScrollControls,
+  Stars,
+  useTexture,
+} from "@react-three/drei";
 import DarkMatter from "./DarkMatter";
 
 function Sphere() {
@@ -185,6 +191,11 @@ function App() {
         <Stars radius={200} count={500} />
         <Sphere />
       </Suspense>
+      <ScrollControls pages={6}>
+        <Html style={{ background: "green" }}>
+          <p style={{ color: "red" }}>This is a test</p>
+        </Html>
+      </ScrollControls>
     </Canvas>
   );
 }
