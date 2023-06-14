@@ -2,6 +2,7 @@ import { Suspense, useCallback, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
+import DarkMatter from "./DarkMatter";
 
 function Sphere() {
   const map = useTexture([
@@ -60,7 +61,7 @@ const FakeSphere = () => {
   return (
     <mesh>
       <sphereGeometry args={[0.7, 30, 30]} attach="geometry" />
-      <meshBasicMaterial color={'#ffffff'} attach="material" />
+      <meshBasicMaterial color={"#ffffff"} attach="material" />
     </mesh>
   );
 };
@@ -155,37 +156,34 @@ function App() {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
-    <>
-      {/* <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1037366/planet2.png" style={{backgroundColor:'transparent',position:'absolute'}}/> */}
+    <Canvas
+      camera={{
+        fov: 90,
+        near: 1,
+        far: 1100,
+        position: [0, 0, 15],
+        aspect: window.innerWidth / window.innerHeight,
+      }}
+      style={{ height: "100vh", width: "100vw" }}
+    >
+      <OrbitControls
+        enableZoom={false}
+        enablePan={true}
+        enableDamping
+        dampingFactor={0.2}
+        autoRotate={true}
+        rotateSpeed={-0.5}
+      />
 
-      <Canvas
-        camera={{
-          fov: 90,
-          near: 1,
-          far: 1100,
-          position: [0, 0, 1],
-          aspect: window.innerWidth / window.innerHeight,
-        }}
-        style={{ height: "100vh", backgroundColor: "#000000" }}
-      >
-        <OrbitControls
-          enableZoom={false}
-          enablePan={true}
-          enableDamping
-          dampingFactor={0.2}
-          autoRotate={true}
-          rotateSpeed={-0.5}
-        />
+      <Suspense fallback={null}>
+        <pointLight position={[15, 15, 15]} />
+        <DarkMatter />
 
-        <Suspense fallback={null}>
-        <FakeSphere />
-
-          <pointLight distance={100} intensity={4} color="white" />
-          <Swarm count={500} mouse={mouse} />
-          <Sphere />
-        </Suspense>
-      </Canvas>
-    </>
+        <pointLight distance={100} intensity={4} color="white" />
+        <Swarm count={500} mouse={mouse} />
+        <Sphere />
+      </Suspense>
+    </Canvas>
   );
 }
 
