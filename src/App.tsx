@@ -176,7 +176,8 @@ function App() {
       />
 
       <Suspense fallback={null}>
-        <pointLight position={[15, 15, 15]} />
+        <pointLight position={[0, 15, 15]} />
+        <pointLight position={[15, 0, 15]} />
         <DarkMatter />
 
         <pointLight distance={100} intensity={4} color="white" />
