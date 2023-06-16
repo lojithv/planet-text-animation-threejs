@@ -13,6 +13,8 @@ import DarkMatter from "./DarkMatter";
 import Overlay from "./Overlay";
 import SphereBg from "./SphereBg";
 import Swarm from "./Swarm";
+import { Color, SphereGeometry } from "three";
+import ParticleSphere from "./ParticleSphere";
 
 function App() {
   const overlay = useRef();
@@ -53,6 +55,8 @@ function App() {
           <pointLight position={[0, 15, 15]} />
           <pointLight position={[15, 0, 15]} />
           <DarkMatter />
+          
+          <ParticleSphere/>
 
           <pointLight distance={100} intensity={4} color="white" />
           <Swarm count={500} mouse={mouse} />
